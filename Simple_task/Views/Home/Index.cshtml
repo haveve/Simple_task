@@ -1,0 +1,35 @@
+﻿@using Simple_task.Models;
+@model User
+
+<style>
+    .field-validation-error {
+        color: #b94a48;
+    }
+    .validation-summary-errors {
+        color: #b94a48;
+    }
+</style>
+
+<body>
+    <div>
+        <form method="post">
+            <p>
+                <label asp-for="UserName"></label>
+                <br />
+                <input type="text" asp-for="UserName" />
+                <br>
+                <span asp-validation-for="UserName"></span>
+            </p>
+
+            <p>
+                <input type="submit" value="Submit" />
+            </p>
+        </form>
+        @if (Model != null)
+        {
+            <label>
+                @($"Hello, {Model.UserName}!")
+            </label>
+        }
+    </div>
+</body>
